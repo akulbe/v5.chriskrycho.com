@@ -26,6 +26,11 @@
 {%- endblock %}
 
 {% block content %}
+{% if series %}
+   <div class='callout'>
+      <p>This post is part of a series: <b>{{series.title | inlineMd | safe}}</b></p>
+   </div>
+{% endif %}
 {%- if book -%}
    {{- review(book) -}}
 {%- endif -%}

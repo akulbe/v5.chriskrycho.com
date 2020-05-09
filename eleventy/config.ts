@@ -64,6 +64,8 @@ function config(config: Config): UserConfig {
       return (a ?? []).concat(b ?? [])
    })
 
+   config.addFilter('collectionFromSeries', (title: string) => {})
+
    config.addShortcode('localeDate', localeDate)
    config.addShortcode('copyright', copyright)
 
@@ -75,6 +77,11 @@ function config(config: Config): UserConfig {
    config.addCollection('pages', collection =>
       collection.getAll().filter(item => item.data?.standalonePage),
    )
+
+   config.addCollection('fanfare', collection =>
+      collection.getAll().filter(item => !!item.data?.series),
+   )
+
    addCollectionFromDir(config, 'journal')
    addCollectionFromDir(config, 'essays')
    addCollectionFromDir(config, 'library')

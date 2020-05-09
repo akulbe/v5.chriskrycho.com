@@ -48,6 +48,10 @@ declare module '../types/eleventy' {
       link?: string
       splash?: string
       book?: Book
+      series?: {
+         title: string
+         part: number
+      }
       standalonePage?: boolean
       /**
        * Allow overriding the normal feed ID to enable keeping feed entries stable even if
